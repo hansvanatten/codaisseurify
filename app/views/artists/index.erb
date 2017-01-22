@@ -4,6 +4,9 @@
   <p><%= link_to artist.name, artist_path(artist.id) %></p>
 
   <p>Songs: <%= artist.songs.count %></p>
-    <%= image_tag photo.image %>
+    <%= image_tag artist.photo %>
 
 <% end %>
+
+<%= link_to "Sort by name", {sort: "name", direction: @next_direction } %>
+<%= link_to "Sort by creation date", {sort: "created_at", direction: @next_direction } %>

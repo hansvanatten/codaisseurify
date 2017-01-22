@@ -2,6 +2,16 @@
 
   <% @songs.each do |song| %>
     <p><%= song.name %></p>
+    <%= link_to "Delete", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 
-<%= link_to "[Delete artist]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= form_for [@artist, @artist.songs.new] do |f| %>
+    <div class="form-group">
+      <%= f.label :name, text: "Add song: " %>
+      <%= f.text_field :title %>
+      <%= f.submit "Add" %>
+    </div>
+  <% end %>
+
+<%= link_to "Delete artist", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "All Artists", root_path %>

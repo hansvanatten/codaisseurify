@@ -16,10 +16,10 @@ song4 = Song.create!({name: "Hotel California"})
 song5 = Song.create!({name: "Californication"})
 song6 = Song.create!({name: "Dark Necessities"})
 
-artist1 = Artist.create!(name: "Queen", photos: [photo1])
-artist2 = Artist.create!(name: "Twenty One Pilots", photos: [photo2])
-artist3 = Artist.create!(name: "Eagles", photos: [photo3])
-artist4 = Artist.create!(name: "Red Hot Chili Peppers", photos: [photo4])
+artist1 = Artist.create!(name: "Queen", photo: [photo1])
+artist2 = Artist.create!(name: "Twenty One Pilots", photo: [photo2])
+artist3 = Artist.create!(name: "Eagles", photo: [photo3])
+artist4 = Artist.create!(name: "Red Hot Chili Peppers", photo: [photo4])
 
 # Photos
 photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dghfv4v5j/image/upload/v1485117131/Queen_logo_d6o9yk.jpg")

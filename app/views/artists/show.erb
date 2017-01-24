@@ -8,7 +8,7 @@
   <%= form_for [@artist, @artist.songs.new] do |f| %>
     <div class="form-group">
       <%= f.label :name, text: "Add song: " %>
-      <%= f.text_field :title %>
+      <%= f.text_field :name %>
       <%= f.submit "Add" %>
     </div>
   <% end %>

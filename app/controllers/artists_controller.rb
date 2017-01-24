@@ -1,11 +1,10 @@
 class ArtistsController < ApplicationController
+  before_action :set_artist, only: [:show, :destroy]
   def index
-    @artists = Artist.order(sort_column + " " + @current_direction)
+    @artists = Artist.order(sort_column + " " + sort_direction)
   end
 
   def show
-    @artist = Artist.find(params[:id])
-    @songs = @artist.songs
   end
 
   def destroy
@@ -14,6 +13,11 @@ class ArtistsController < ApplicationController
   end
 
   private
+
+  def set_artist
+        @artist = Artist.find(params[:id])
+  end
+
   def sort_column
       Artist.column_names.include?(params[:sort]) ? params[:sort] : "name"
    end
@@ -21,5 +25,6 @@ class ArtistsController < ApplicationController
    def sort_direction
      current_direction = params[:direction] || "asc"
      @next_direction = current_direction == "asc" ? "desc" : "asc"
+     current_direction
   end
 end

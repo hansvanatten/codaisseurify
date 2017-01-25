@@ -1,12 +1,19 @@
 <h1>Artists</h1>
 
 <% @artists.each do |artist| %>
-  <p><%= link_to artist.name, artist_path(artist.id) %></p>
-
-  <p>Songs: <%= artist.songs.count %></p>
-    <%= image_tag artist.photo %>
-
+  <tr>
+    <% artist.photos.each do |photo| %>
+      <%= image_tag photo.image %>
+    <% end %>
+    <td><%= artist.name %></td>
+    <td><%= pluralize(artist.songs.count, "song") %></td>
+    <td><%= link_to "Show songs list", artist_path(artist), class: 'btn btn-primary btn-xs' %>
+      <%= link_to "Delete Artist", artist_path(artist), method: :delete, class: 'btn btn-danger btn-xs',
+      data: { confirm: "Are you sure?" } %>
+    </td>
+  </tr>
 <% end %>
+
 
 <%= link_to "Sort by name", {sort: "name", direction: @next_direction } %>
 <%= link_to "Sort by creation date", {sort: "created_at", direction: @next_direction } %>

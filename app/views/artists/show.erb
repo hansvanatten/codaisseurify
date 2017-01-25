@@ -2,7 +2,7 @@
 
   <% @artist.songs.each do |song| %>
     <p><%= song.name %></p>
-    <%= link_to "Delete", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to "Delete song", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 
   <%= form_for [@artist, @artist.songs.new] do |f| %>

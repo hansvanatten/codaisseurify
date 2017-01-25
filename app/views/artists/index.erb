@@ -3,11 +3,11 @@
 <% @artists.each do |artist| %>
   <tr>
     <% artist.photos.each do |photo| %>
-      <%= image_tag photo.image %>
+    <td><%= image_tag photo.image, size: '300x250' %></td>
     <% end %>
     <td><%= artist.name %></td>
     <td><%= pluralize(artist.songs.count, "song") %></td>
-    <td><%= link_to "Show songs list", artist_path(artist), class: 'btn btn-primary btn-xs' %>
+    <td><%= link_to "Show songs", artist_path(artist), class: 'btn btn-primary btn-xs' %>
       <%= link_to "Delete Artist", artist_path(artist), method: :delete, class: 'btn btn-danger btn-xs',
       data: { confirm: "Are you sure?" } %>
     </td>

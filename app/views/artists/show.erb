@@ -1,5 +1,7 @@
 <h1><%= @artist.name %></h1>
-
+<% @artist.photos.each do |photo| %>
+  <%= image_tag photo.image, size: '300x250' %>
+  <% end %>
   <% @artist.songs.each do |song| %>
     <p><%= song.name %></p>
     <%= link_to "Delete song", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
@@ -14,4 +16,4 @@
   <% end %>
 
 <%= link_to "Delete artist", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "All Artists", root_path %>
+<%= link_to "Back to artists", root_path %>

@@ -3,7 +3,7 @@
   <%= image_tag photo.image, size: '300x250' %>
   <% end %>
   <% @artist.songs.each do |song| %>
-    <p><%= song.name %></p>
+    <p><strong><%= song.name %></strong></p>
     <%= link_to "Delete song", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 
